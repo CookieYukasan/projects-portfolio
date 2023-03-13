@@ -14,7 +14,7 @@ export default function ProjectCard({ data }: ProjectProps) {
   const { title, description, image, link, githubUrl } = data;
 
   return (
-    <div className="rounded-lg border border-[#873EFF] bg-[#171228] p-6 transition-transform duration-300 hover:translate-x-2 hover:-translate-y-2">
+    <div className="rounded-lg border border-[#873EFF] bg-[#171228] p-6 transition-transform duration-300 hover:translate-x-2 md:hover:-translate-y-2">
       <div className="flex h-[222px] w-full items-center justify-center rounded bg-[#0E091B]">
         {!image && <SkeletonImage />}
         {image && (
