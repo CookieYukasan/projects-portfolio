@@ -17,7 +17,9 @@ export default function Home() {
           LOGO TIPO
         </h1>
         <button className="mr-12 hidden font-dmSans uppercase text-[#AEAEAE] md:block">
-          Meu Github
+          <a href="https://github.com/CookieYukasan" target="_blank">
+            Meu Github
+          </a>
         </button>
         <button className="mt-12 w-full rounded-md border border-[#873EFF] py-6 px-7 font-dmSans text-base font-bold uppercase text-[#AEAEAE] md:mt-0 md:w-auto">
           Entrar em Contato
