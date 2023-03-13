@@ -1,91 +1,67 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import ProjectCard from '@/components/ProjectCard';
+import Image from 'next/image';
+import { projectsArray } from '../constants/projects';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+    <div className="container p-6 md:mx-auto">
+      <header className="md:flex md:items-center">
+        <h1 className="text-center font-josefin text-2xl font-bold text-[#AEAEAE] md:flex-grow md:text-left">
+          LOGO TIPO
+        </h1>
+        <button className="mr-12 hidden font-dmSans uppercase text-[#AEAEAE] md:block">
+          Meu Github
+        </button>
+        <button className="mt-12 w-full rounded-md border border-[#873EFF] py-6 px-7 font-dmSans text-base font-bold uppercase text-[#AEAEAE] md:mt-0 md:w-auto">
+          Entrar em Contato
+        </button>
+      </header>
+      <section className="mt-12 md:mt-28">
+        <p className="animate-fadeDown font-ibmPlexMono text-sm font-bold uppercase tracking-wider text-[#04D361] md:text-2xl">
+          Adson Martins & Vitor Conceição
         </p>
-        <div>
+        <h1 className="mt-2 mb-4 animate-fadeDown font-ibmPlexMono text-2xl font-semibold text-[#AEAEAE] animation-delay-100 md:mt-3 md:mb-8 md:w-1/2 md:text-6xl">
+          Projetos produzidos em conjunto
+        </h1>
+        <p className="font-base font-base animate-fadeDown font-dmSans font-medium text-zinc-500 animation-delay-200 md:w-1/2 md:text-2xl">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis
+          ligula, accumsan nec cursus in, eleifend sit amet dui.
+        </p>
+      </section>
+      <section className="mt-7 grid gap-7 md:mt-32 md:grid-cols-3">
+        {projectsArray.map((project) => (
+          <ProjectCard data={project} key={project.title} />
+        ))}
+      </section>
+      <footer className="mt-14 flex flex-col items-center justify-center md:flex-row md:justify-between">
+        <h1 className="mb-3 text-center font-ibmPlexMono text-sm font-normal text-[#AEAEAE]">
+          © {new Date().getFullYear()} -{' '}
           <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/adson-martins-743ab01b5/"
+            className="hover:text-zinc-500 hover:underline"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
+            Adson Martins
+          </a>{' '}
+          &{' '}
+          <a
+            href="https://www.linkedin.com/in/vitor-c-01b881223/"
+            className="hover:text-zinc-500 hover:underline"
+          >
+            Vitor Conceição
           </a>
+        </h1>
+        <div className="flex items-center">
+          <span className="mr-5 font-ibmPlexMono text-sm font-normal text-[#AEAEAE]">
+            Powered by
+          </span>
+          <Image
+            src="/images/spaceship-logo.svg"
+            width={150}
+            height={150}
+            alt="Spaceship Logo"
+          />
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </footer>
+    </div>
+  );
 }
