@@ -1,6 +1,13 @@
 import ProjectCard from '@/components/ProjectCard';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { projectsArray } from '../constants/projects';
+
+export const metadata: Metadata = {
+  title: 'Adson & Vitor | Portfólio',
+  description:
+    'Portfolio de diversos projetos desenvolvidos em parceria entre nós!',
+};
 
 export default function Home() {
   return (
